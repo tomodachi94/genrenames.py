@@ -1,2 +1,2 @@
 import renames
-import cli
+import cli as renames.cli
