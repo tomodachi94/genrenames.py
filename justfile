@@ -21,5 +21,8 @@ test: init-virtualenv
 check: install-dev
 	{{ PYTHON_BINARY }} -m flake8 src/
 
+build: install-dev
+	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile
+
 build-doc:
 	pandoc doc/genrenames.md -s -t man > doc/genrenames.1

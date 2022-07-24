@@ -10,6 +10,8 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
+orderedset = "^2.0.3"
+Nuitka = "^0.9.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
