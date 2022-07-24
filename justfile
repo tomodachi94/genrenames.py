@@ -30,7 +30,7 @@ build-doc:
 build-deb: build build-doc
 	fpm \
 	  -s dir -t deb \
-	  -p hello-world-0.1.0-1-any.deb \
+	  -p genrenames-0.1.0-1-x86_64.deb \
 	  --name genrenames-py \
 	  --license mit \
 	  --version 0.1.0 \
