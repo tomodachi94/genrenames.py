@@ -10,6 +10,6 @@ gpg --default-key "${EMAIL}" -abs -o - Release > Release.gpg
 gpg --default-key "${EMAIL}" --clearsign -o - Release > InRelease
 
 # Commit & push
-git add -A
-git commit -m "Add or update package"
-git push
+#git add -A
+#git commit -m "Add or update package"
+#git push
