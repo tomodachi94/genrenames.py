@@ -26,3 +26,16 @@ build: install-dev
 
 build-doc:
 	pandoc doc/genrenames.md -s -t man > doc/genrenames.1
+
+build-deb: build build-doc
+	fpm \
+	  -s dir -t deb \
+	  -p hello-world-0.1.0-1-any.deb \
+	  --name genrenames-py \
+	  --license mit \
+	  --version 0.1.0 \
+	  --architecture x86_64 \
+	  --description "Creates a `renames.txt` file from a tilesheet dump for `ftb-rs`." \
+	  --url "https://github.com/tomodachi94/genrenames.py" \
+	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
+	  cli.bin=/usr/bin/genrenames doc/genrenames.1=/usr/share/man/man1/genrenames.1
