@@ -16,4 +16,6 @@ test: init-virtualenv
 	{{ PYTHON_BINARY }} test/test_renames.py
 
 check: install-dev
-	python3 -m flake8 src/
+
+build-doc:
+	pandoc doc/genrenames.md -s -t man > doc/genrenames.1
