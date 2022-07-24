@@ -2,7 +2,7 @@
 % Tomodachi94
 % June 2022
 
-# NAME
+## NAME
 
 genrenames - Create a `renames.txt` file from a tilesheet dump for `ftb-rs`.
 
