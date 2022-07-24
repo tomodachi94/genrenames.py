@@ -4,10 +4,10 @@ Architecture: amd64
 Maintainer: Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>
 Installed-Size: 7583
 Filename: ./genrenames-0.1.0-any.deb
-Size: 7601992
-MD5sum: 47a467cc127d26e8c45c69b106e63dc0
-SHA1: 906ca5bd9add2f2866a1dd0ee40605b793c6b790
-SHA256: 798b82f6e218cc7cffb1afb0b7d1343c543e95491fbb12722cdecc8e5d9da0a7
+Size: 7601978
+MD5sum: b0debff98b8dbebe21b08269e84e84e2
+SHA1: 645692e2e88d5e635c5a126610ca6ab3e79122fa
+SHA256: c74d441fa41354967bd0e5bbe2ea796c5deb3e94dc580c3cd7147207688be833
 Section: default
 Priority: extra
 Homepage: https://github.com/tomodachi94/genrenames.py
