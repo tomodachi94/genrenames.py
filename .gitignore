@@ -164,3 +164,15 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+### Packages ###
+
+*.deb
+*.rpm
+*.exe
+*.bin
+
+*.dist/
+*.build/
+
+*.1
