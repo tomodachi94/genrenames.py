@@ -41,5 +41,6 @@ def get_renames(folder):
         return False
     else:
     out = "=\n".join(matches)
+        out = out + "="  # fixes last line
         return out
     return out
