@@ -38,7 +38,7 @@ build-deb: build build-doc
 	  --license mit \
 	  --version 0.1.1 \
 	  --architecture x86_64 \
-	  --description "Creates a `renames.txt` file from a tilesheet dump for `ftb-rs`." \
+	  --description "Creates a renames.txt file from a tilesheet dump for ftb-rs." \
 	  --url "https://github.com/tomodachi94/genrenames.py" \
 	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
 	  ./tmp/cli.bin=/usr/bin/genrenames tmp/genrenames.1=/usr/share/man/man1/genrenames.1
