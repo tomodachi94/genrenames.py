@@ -30,12 +30,15 @@ build-doc:
 build-deb: build build-doc
 	fpm \
 	  -s dir -t deb \
-	  -p genrenames-0.1.0-1-x86_64.deb \
+	  -p genrenames-0.1.1-1-x86_64.deb \
 	  --name genrenames-py \
 	  --license mit \
-	  --version 0.1.0 \
+	  --version 0.1.1 \
 	  --architecture x86_64 \
 	  --description "Creates a `renames.txt` file from a tilesheet dump for `ftb-rs`." \
 	  --url "https://github.com/tomodachi94/genrenames.py" \
 	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
 	  cli.bin=/usr/bin/genrenames doc/genrenames.1=/usr/share/man/man1/genrenames.1
+
+bump-version OLD_VERSION NEW_VERSION:
+	find . -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;
