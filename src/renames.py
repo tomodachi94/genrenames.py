@@ -40,7 +40,24 @@ def get_renames(folder):
     if len(matches) == 0:  # makes sure that there is something to give back
         return False
     else:
-    out = "=\n".join(matches)
+        out = "=\n".join(matches)
         out = out + "="  # fixes last line
         return out
-    return out
+
+
+def get_all_as_renames(folder):
+    """
+    Returns a full list of items in the directory in `renames.txt` format.
+    """
+
+    out = []
+    files = os.listdir(folder)
+    for item in files:
+        out.append(item)
+
+    if len(out) == 0:
+        return False
+    else:
+        out = "=\n".join(out)
+        out = out + "="  # fixes last line
+        return out

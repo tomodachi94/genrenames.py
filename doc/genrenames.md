@@ -29,6 +29,9 @@ The `renames.txt` file is an option to resolve such characters.
 **-o**, **--output-file**
 : The file to export the results of the program to. If blank, the program returns everything through stdout.
 
+**-a**, **--all-files**
+: If present, the program will return all files in the target path in renames.txt format.
+
 ## EXAMPLES
 
 **genrenames -p ~/.minecraft/icons**

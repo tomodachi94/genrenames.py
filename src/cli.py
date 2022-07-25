@@ -13,20 +13,33 @@ p = argparse.ArgumentParser(prog="genrenames-py",
 
 p.add_argument("--path", "-p", metavar="PATH", type=str, help="The path to search.")
 p.add_argument("--output-file", "-o", metavar="PATH.txt", type=str, help="The file to dump output to. If blank, the program will dump to stdout.")
-
+p.add_argument("--list-all", "-a", action="store_true", type=bool, help="Adds all files in a directory to renames.txt.")
 
 args = p.parse_args()
 
 target = args.path
 
-out = renames.get_renames(target)
-renames_file = os.path.join(target, "renames.txt")
-if not out:
-    print("No matching files to return. You should be fine to proceed with uploading.")
-else:
-    if not args.output_file:
-        print(out)
+if args.list_all:
+    out = renames.get_all_as_renames(target)
+    renames_file = os.path.join(target, "renames.txt")
+    if not out:
+        print("No files were present in that directory. You should be fine to proceed with uploading.")
     else:
-        f = open(renames_file)
-        f.write(out)
-        f.close()
+        if not args.output_file:
+            print(out)
+        else:
+            f = open(renames_file)
+            f.write(out)
+            f.close()
+else:
+    out = renames.get_renames(target)
+    renames_file = os.path.join(target, "renames.txt")
+    if not out:
+        print("No matching files to return. You should be fine to proceed with uploading.")
+    else:
+        if not args.output_file:
+            print(out)
+        else:
+            f = open(renames_file)
+            f.write(out)
+            f.close()
