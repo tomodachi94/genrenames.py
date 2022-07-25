@@ -176,3 +176,5 @@ cython_debug/
 *.build/
 
 *.1
+
+tmp/

@@ -22,7 +22,8 @@ check: install-dev
 	{{ PYTHON_BINARY }} -m flake8 src/
 
 build: install-dev
-	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile
+	mkdir ./tmp/
+	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile --output-dir ./tmp
 
 build-doc:
 	mkdir ./tmp/
@@ -39,7 +40,7 @@ build-deb: build build-doc
 	  --description "Creates a `renames.txt` file from a tilesheet dump for `ftb-rs`." \
 	  --url "https://github.com/tomodachi94/genrenames.py" \
 	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
-	  cli.bin=/usr/bin/genrenames tmp/genrenames.1=/usr/share/man/man1/genrenames.1
+	  ./tmp/cli.bin=/usr/bin/genrenames tmp/genrenames.1=/usr/share/man/man1/genrenames.1
 
 bump-version OLD_VERSION NEW_VERSION:
 	find . -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;
