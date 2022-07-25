@@ -24,7 +24,8 @@ check: install-dev
 	{{ PYTHON_BINARY }} -m flake8 src/
 
 build: install-dev
-	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile --output-dir=./tmp
+	mkdir ./tmp/
+	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile --output-dir ./tmp
 
 build-doc:
 	pandoc MANUAL.md -s -t man > tmp/genrenames.1
