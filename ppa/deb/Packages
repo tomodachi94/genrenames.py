@@ -15,3 +15,20 @@ Description: Creates a  file from a tilesheet dump for .
 License: mit
 Vendor: none
 
+Package: genrenames-py
+Version: 0.1.1
+Architecture: amd64
+Maintainer: Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>
+Installed-Size: 7584
+Filename: ./genrenames-0.1.1-1-x86_64.deb
+Size: 7602496
+MD5sum: 6acc9f83a7903b708c2f81781fa9f19b
+SHA1: 8b86cd2227b4528f54a813cf3e3769d1a764dc59
+SHA256: 3e6aa1a345b7bb9556e2201f066dfc4d2557eb66fdbf1bf2b67c03fb6788455d
+Section: default
+Priority: extra
+Homepage: https://github.com/tomodachi94/genrenames.py
+Description: Creates a  file from a tilesheet dump for .
+License: mit
+Vendor: none
+
