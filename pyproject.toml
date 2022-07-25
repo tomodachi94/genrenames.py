@@ -1,8 +1,12 @@
+[build-system]
+requires = [ "poetry-core>=1.0.0",]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "genrenames-py"
-version = "0.1.0"
+version = "0.1.1"
 description = "Create a `renames.txt` file from a tilesheet dump for `ftb-rs`."
-authors = ["Tomo <68489118+Tomodachi94@users.noreply.github.com>"]
+authors = [ "Tomo <68489118+Tomodachi94@users.noreply.github.com>",]
 license = "MIT"
 
 [tool.poetry.dependencies]
@@ -12,7 +16,3 @@ python = "^3.8"
 flake8 = "^4.0.1"
 orderedset = "^2.0.3"
 Nuitka = "^0.9.5"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
