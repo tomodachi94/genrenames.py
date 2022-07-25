@@ -37,5 +37,9 @@ def get_renames(folder):
     for item in files:
         if _has_underscore(item):
             matches.append(item)
+    if len(matches) == 0:  # makes sure that there is something to give back
+        return False
+    else:
     out = "=\n".join(matches)
+        return out
     return out

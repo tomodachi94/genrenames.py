@@ -3,9 +3,9 @@ import os
 
 import renames  # local
 
-p = argparse.ArgumentParser(prog="genrenames-py"
-                            description="Utility to generate a renames.txt file."
-                            epilog="""(c) Tomodachi94 2022, MIT License. 
+p = argparse.ArgumentParser(prog="genrenames-py",
+                            description="Utility to generate a renames.txt file.",
+                            epilog="""(c) Tomodachi94 2022, MIT License.
                             A copy of the license should have been distributed with your copy of the software. If not, see https://mit-license.org .
 
                             For more help, see `man genrenames`.
@@ -21,10 +21,12 @@ target = args.path
 
 out = renames.get_renames(target)
 renames_file = os.path.join(target, "renames.txt")
-
-if not args.output_file:
-    print(out)
+if not out:
+    print("No matching files to return. You should be fine to proceed with uploading.")
 else:
-    f = open(renames_file)
-    f.write(out)
-    f.close()
+    if not args.output_file:
+        print(out)
+    else:
+        f = open(renames_file)
+        f.write(out)
+        f.close()
