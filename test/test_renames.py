@@ -1,6 +1,6 @@
 import unittest
 
-import ftb_renames as renames  # local
+import genrenames as renames  # local
 
 # ensure test functions start with 'test_*' and
 # test case classes end with 'TestCase*'

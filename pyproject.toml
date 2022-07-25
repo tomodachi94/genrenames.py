@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "genrenames.py"
+name = "genrenames-py"
 version = "0.1.0"
-description = "Generates `renames.txt` for FTBWiki's `ftb-rs` tool."
+description = "Create a `renames.txt` file from a tilesheet dump for `ftb-rs`."
 authors = ["Tomo <68489118+Tomodachi94@users.noreply.github.com>"]
 license = "MIT"
 

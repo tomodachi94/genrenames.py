@@ -2,7 +2,7 @@
 
 This is a script/library to generate a `renames.txt` file for [ftb-rs's tilesheet uploading function](https://github.com/FTB-Gamepedia/ftb-rs/), but in Python.
 
-For help, execute `python3 src/cli.py -h`.
+For help, execute `genrenames --help` or `man genrenames` (assuming you installed the man page).
 
 ## Installation
 
