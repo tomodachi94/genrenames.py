@@ -25,7 +25,8 @@ build: install-dev
 	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile
 
 build-doc:
-	pandoc doc/genrenames.md -s -t man > doc/genrenames.1
+	mkdir ./tmp/
+	pandoc MANUAL.md -s -t man > tmp/genrenames.1
 
 build-deb: build build-doc
 	fpm \
@@ -38,7 +39,7 @@ build-deb: build build-doc
 	  --description "Creates a `renames.txt` file from a tilesheet dump for `ftb-rs`." \
 	  --url "https://github.com/tomodachi94/genrenames.py" \
 	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
-	  cli.bin=/usr/bin/genrenames doc/genrenames.1=/usr/share/man/man1/genrenames.1
+	  cli.bin=/usr/bin/genrenames tmp/genrenames.1=/usr/share/man/man1/genrenames.1
 
 bump-version OLD_VERSION NEW_VERSION:
 	find . -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;
