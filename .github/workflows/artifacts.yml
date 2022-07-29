@@ -1,0 +1,49 @@
+name: Build artifacts
+on: "release"
+
+jobs:
+  build-linux:
+    name: "Build for Linux"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4
+
+      - uses: actions/checkout@v1
+
+      - uses: extractions/setup-just@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Build binaries and Debian packages"
+        run: just build-deb
+
+      - name: 'Upload asset: Linux x86_64 (deb)'
+        uses: actions/upload-artifact@v2
+        with:
+          name: "Linux x86_64 (Debian package)"
+          path: "./tmp/genrenames-x86_64.deb"
+
+      - name: 'Upload asset: Linux x86_64 (raw binary)'
+        uses: actions/upload-artifact@v2
+        with:
+          name: "Linux x86_64 (Raw binary)"
+          path: "./tmp/cli.bin"
+
+  build-windows:
+    name: Build for Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/setup-python@v4
+
+      - uses: actions/checkout@v1
+
+      - uses: extractions/setup-just@v1
+
+      - name: "Build Windows binary"
+        run: just build
+
+      - name: 'Upload asset: Windows x86_64 (exe)'
+        uses: actions/upload-artifact@v2
+        with:
+          name: "Windows x86_64 (Windows executable)"
+          path: "./tmp/cli.exe"
