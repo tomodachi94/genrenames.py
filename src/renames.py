@@ -1,6 +1,8 @@
 import os
 import re
 
+valid_extensions = ["png", "jpg", "jpeg"]
+
 
 def _strip_full_path(target: str):
     """
@@ -27,6 +29,15 @@ def _has_underscore(target: str):
     return out
 
 
+def _has_good_extension(target: str, extensions=valid_extensions):
+    extension = target.split(".")
+    extension = extension[-1]
+    for item in extensions:
+        if item == extension:
+            return True
+    return False
+
+
 def get_renames(folder):
     """
     Returns a newline-delimited string of files containing underscores.
@@ -35,7 +46,7 @@ def get_renames(folder):
     matches = []
     files = os.listdir(folder)
     for item in files:
-        if _has_underscore(item):
+        if _has_underscore(item) and _has_good_extension(item):
             matches.append(item)
     if len(matches) == 0:  # makes sure that there is something to give back
         return False
@@ -53,7 +64,8 @@ def get_all_as_renames(folder):
     out = []
     files = os.listdir(folder)
     for item in files:
-        out.append(item)
+        if _has_good_extension(item):
+            out.append(item)
 
     if len(out) == 0:
         return False

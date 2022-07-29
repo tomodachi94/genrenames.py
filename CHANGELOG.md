@@ -1,5 +1,9 @@
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and uses the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format.
 
+## [unreleased]
+
+- A filter has been added to only allow JPEGs and PNGs into `renames.txt` files.
+
 ## 0.1.1
 
 - Add program description and consistently use `genrenames-py`.

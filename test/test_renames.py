@@ -40,6 +40,29 @@ class GenRenamesTestCase(unittest.TestCase):
         self.assertEqual("Xbony_s cool pickaxe.png", out)
 
 
+class ExtensionsTestCase(unittest.TestCase):
+
+    def test_extension_png(self):
+        out = renames._has_good_extension("example.png")
+        self.assertTrue(out)
+
+    def test_extension_jpg(self):
+        out = renames._has_good_extension("example.jpg")
+        self.assertTrue(out)
+
+    def test_extension_jpeg(self):
+        out = renames._has_good_extension("example.jpeg")
+        self.assertTrue(out)
+
+    def test_extension_txt(self):
+        out = renames._has_good_extension("example.txt")
+        self.assertFalse(out)
+
+    def test_extension_mov(self):
+        out = renames._has_good_extension("example.mov")
+        self.assertFalse(out)
+
+
 # no unit tests beyond this point
 
 if __name__ == "__main__":
