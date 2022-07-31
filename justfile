@@ -9,9 +9,9 @@ PYTHON_BINARY := "python"
 PIP_BINARY := "python -m pip"
 
 init-virtualenv:
-	#!/bin/bash
-	mkdir ./tmp
+	-mkdir ./tmp
 	python3 -m venv ./.venv/
+	sudo gem install fpm
 
 install-dev: init-virtualenv
 	{{ PIP_BINARY }} install poetry
@@ -24,7 +24,7 @@ check: install-dev
 	{{ PYTHON_BINARY }} -m flake8 src/
 
 build: install-dev
-	mkdir ./tmp/
+	-mkdir ./tmp/
 	{{ PYTHON_BINARY }} -m nuitka src/cli.py --onefile --output-dir ./tmp
 
 build-doc:
@@ -33,7 +33,7 @@ build-doc:
 build-deb: build build-doc
 	fpm \
 	  -s dir -t deb \
-	  -p ./tmp/genrenames-0.1.1-1-x86_64.deb \
+	  -p ./tmp/genrenames-x86_64.deb \
 	  --name genrenames-py \
 	  --license mit \
 	  --version 0.1.1 \
