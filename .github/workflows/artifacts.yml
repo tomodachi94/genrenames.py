@@ -1,5 +1,7 @@
 name: Build artifacts
-on: "release"
+on:
+  release:
+  workflow_dispatch:
 
 jobs:
   build-linux:
