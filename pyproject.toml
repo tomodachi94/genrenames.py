@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "genrenames-py"
-version = "0.1.1"
+version = "0.2.0"
 description = "Create a `renames.txt` file from a tilesheet dump for `ftb-rs`."
 authors = [ "Tomo <68489118+Tomodachi94@users.noreply.github.com>",]
 license = "MIT"

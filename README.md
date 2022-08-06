@@ -17,7 +17,7 @@ sudo apt update
 sudo apt install genrenames-py
 ```
 
-Alternatively, you can download a `.deb` package from [here](https://tomodachi94.github.io/genrenames.py/ppa/deb/genrenames-0.1.1-any.deb).
+Alternatively, you can download a `.deb` package from [here](https://tomodachi94.github.io/genrenames.py/ppa/deb/genrenames-0.2.0-any.deb).
 
 ### Other operating systems
 

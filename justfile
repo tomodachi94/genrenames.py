@@ -8,7 +8,7 @@
 PYTHON_BINARY := "python"
 PIP_BINARY := "python -m pip"
 
-VERSION := "0.1.1"
+VERSION := "0.2.0"
 
 init-virtualenv:
 	-mkdir ./tmp
@@ -48,4 +48,4 @@ build-deb: build-doc
 	  ./src/=/usr/local/lib/python3.9/dist-packages/genrenames ./tmp/genrenames.1=/usr/share/man/man1/genrenames.1 ./tmp/genrenames-link=/usr/bin/genrenames
 
 bump-version OLD_VERSION NEW_VERSION:
-	find . -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;
+	find . -not -path "./.git/*" -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;

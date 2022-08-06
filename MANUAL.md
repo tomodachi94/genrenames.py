@@ -1,4 +1,4 @@
-% GENRENAMES(1) genrenames 0.1.1
+% GENRENAMES(1) genrenames 0.2.0
 % Tomodachi94
 % June 2022
 
