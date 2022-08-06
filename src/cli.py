@@ -37,10 +37,13 @@ else:
     renames_file = os.path.join(target, "renames.txt")
     if not out:
         print("No matching files to return. You should be fine to proceed with uploading.")
+        sys.exit(2)
     else:
         if not args.output_file:
             print(out)
+            sys.exit(0)
         else:
             f = open(renames_file)
             f.write(out)
             f.close()
+            sys.exit(0)
