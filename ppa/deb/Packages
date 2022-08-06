@@ -32,3 +32,21 @@ Description: Creates a  file from a tilesheet dump for .
 License: mit
 Vendor: none
 
+Package: genrenames-py
+Version: 0.2.0
+Architecture: all
+Maintainer: Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>
+Installed-Size: 6
+Depends: python3
+Filename: ./genrenames_0.2.0-release_any.deb
+Size: 4008
+MD5sum: 3f15e9773d279b20971e7311791910cb
+SHA1: afd32f9686a387e8ab5393fe06f7daa167c97766
+SHA256: 2d4f2de3ba30dff0ee734e210511e863fc89baa449bef0c22dd147c0e6cd95be
+Section: default
+Priority: extra
+Homepage: https://github.com/tomodachi94/genrenames.py
+Description: Creates a renames.txt file from a tilesheet dump for ftb-rs.
+License: mit
+Vendor: none
+
