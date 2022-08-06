@@ -47,5 +47,9 @@ build-deb: build-doc
 	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
 	  ./src/=/usr/local/lib/python3.9/dist-packages/genrenames ./tmp/genrenames.1=/usr/share/man/man1/genrenames.1 ./tmp/genrenames-link=/usr/bin/genrenames
 
+build-zip:
+	-mkdir ./tmp
+	python -m zipapp src/ -o ./tmp/genrenames_0.2.0-release-standalone-python.zip
+
 bump-version OLD_VERSION NEW_VERSION:
 	find . -not -path "./.git/*" -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;
