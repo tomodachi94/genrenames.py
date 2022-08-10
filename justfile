@@ -32,8 +32,13 @@ build-nuitka: install-dev
 build-doc:
 	pandoc MANUAL.md -s -t man > tmp/genrenames.1
 
-build-deb: build-doc
-	-ln -s /usr/local/lib/python3.9/dist-packages/genrenames/cli.py ./tmp/genrenames-link
+build-zip:
+	-mkdir ./tmp
+	python -m zipapp src/ -o ./tmp/genrenames.zip
+	echo '#!/usr/bin/env python3' | cat - ./tmp/genrenames.zip > ./tmp/genrenames.bin
+	chmod a+x ./tmp/genrenames.bin
+
+build-deb: build-doc build-zip
 	fpm \
 	  -s dir -t deb \
 	  -p ./tmp/genrenames_{{ VERSION }}-release_any.deb \
@@ -45,11 +50,21 @@ build-deb: build-doc
 	  --description "Creates a renames.txt file from a tilesheet dump for ftb-rs." \
 	  --url "https://github.com/tomodachi94/genrenames.py" \
 	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
-	  ./src/=/usr/local/lib/python3.9/dist-packages/genrenames ./tmp/genrenames.1=/usr/share/man/man1/genrenames.1 ./tmp/genrenames-link=/usr/bin/genrenames
+	  ./tmp/genrenames.bin=/usr/bin/genrenames ./tmp/genrenames.1=/usr/share/man/man1/genrenames.1
 
-build-zip:
-	-mkdir ./tmp
-	python -m zipapp src/ -o ./tmp/genrenames_0.2.0-release-standalone-python.zip
+build-rpm: build-doc build-zip
+	fpm \
+	  -s dir -t rpm \
+	  -p ./tmp/genrenames.{{ VERSION }}.any.rpm \
+	  --name genrenames-py \
+	  --license mit \
+	  --version {{ VERSION }} \
+	  --architecture all \
+	  --depends python3 \
+	  --description "Creates a renames.txt file from a tilesheet dump for ftb-rs." \
+	  --url "https://github.com/tomodachi94/genrenames.py" \
+	  --maintainer "Tomodachi94 <68489118+Tomodachi94@users.noreply.github.com>" \
+	  ./tmp/genrenames.bin=/usr/bin/genrenames ./tmp/genrenames.1=/usr/share/man/man1/genrenames.1
 
 bump-version OLD_VERSION NEW_VERSION:
 	find . -not -path "./.git/*" -type f -exec sed -i 's/{{ OLD_VERSION }}/{{ NEW_VERSION }}/g' {} \;
