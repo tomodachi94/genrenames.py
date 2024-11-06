@@ -13,6 +13,6 @@ license = "MIT"
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^4.0.1"
+flake8 = "^5.0.4"
 orderedset = "^2.0.3"
 Nuitka = "^2.4.11"
