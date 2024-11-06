@@ -20,13 +20,13 @@ jobs:
         run: just build-deb
 
       - name: 'Upload asset: Linux x86_64 (deb)'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: "Linux x86_64 (Debian package)"
           path: "./tmp/genrenames-x86_64.deb"
 
       - name: 'Upload asset: Linux x86_64 (raw binary)'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: "Linux x86_64 (Raw binary)"
           path: "./tmp/cli.bin"
@@ -45,7 +45,7 @@ jobs:
         run: just build
 
       - name: 'Upload asset: Windows x86_64 (exe)'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: "Windows x86_64 (Windows executable)"
           path: "./tmp/cli.exe"
