@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/setup-python@v5
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - uses: extractions/setup-just@v2
         env:
@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/setup-python@v5
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
       - uses: extractions/setup-just@v2
 
