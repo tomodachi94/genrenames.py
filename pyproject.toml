@@ -15,4 +15,4 @@ python = "^3.8"
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"
 orderedset = "^2.0.3"
-Nuitka = "^2.5.4"
+Nuitka = "^2.5.7"
